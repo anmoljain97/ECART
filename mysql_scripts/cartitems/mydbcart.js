@@ -13,14 +13,13 @@ function insertincart(title,description,price,quantity){
     return new Promise(function(resolve,reject){
         
         connection.query(`INSERT INTO cart (title, description, price,quantity) VALUES(?,?,?,?
-            )`,[title,description,+(price.split(" ")[1]),quantity],function(err,res){
+            )`,[title,description,price,quantity],function(err,res){
+                console.log(price+quantity);
+                
                 if(err){
-                    console.log('------');
-                    
+
                     reject(err);
                 }else{
-                    console.log("---------");
-                    
                     resolve();
                 } 
             })

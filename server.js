@@ -89,7 +89,7 @@ app.post('/addtocart',function(req,res){
          }else{
              console.log('two');
              
-             dbcart.insertincart(item,description,price,img,1).then(function(order){
+             dbcart.insertincart(item,description,price,1).then(function(order){
                 console.log("******");
                 
                 console.log(order);
