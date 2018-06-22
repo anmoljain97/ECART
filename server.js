@@ -1,14 +1,20 @@
 const express= require('express');
 const app=express();
-const dbcart=require('./mysql_scripts/cartitems/mydbcart');
-const dblist=require ('./mysql_scripts/productlist/mydblist');
+
+const dbcart=require('./db/mydbcart');
+const dblist=require ('./db/mydblist');
+
 const bodyparser=require('body-parser');
+
 app.use(bodyparser.urlencoded({
     extended:true
 }));
+
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static(__dirname+'/public'));
+
+
 app.set('view engine','ejs');
 
 app.use(express.static(__dirname + '/public'));
@@ -24,6 +30,8 @@ app.get('/',function(req,res){
     });
     
 })
+
+
 app.get('/cart',function(req,res){
     
     dbcart.getallitemsfromcart().
@@ -44,6 +52,7 @@ app.get('/admin',function(req,res){
     
 res.render('admin.ejs');
 });
+
 app.post('/additem',function(req,res){
     var data=req.body.json; 
      var ele=JSON.parse(data);
@@ -62,6 +71,8 @@ app.post('/additem',function(req,res){
          
      })
 });
+
+
 app.post('/addtocart',function(req,res){
     var data=req.body.json; 
      var ele=JSON.parse(data);
@@ -122,6 +133,7 @@ app.post('/updatequantityincart',function(req,res){
          
      })
 });
+
 app.get('/json',function(req,res){
     var content='';
     dblist.getalltitles().then(function(titles){
@@ -131,10 +143,12 @@ app.get('/json',function(req,res){
 
 
 })
-app.listen(4444,function(){
-console.log("SERVER STARTED AT 4444");
+
+app.listen(7777,function(){
+console.log("Server started at http://localhost:7777/");
 
 });
+
 app.get('/thankyou',function(req,res){
     res.redirect('confirm.ejs')
 })

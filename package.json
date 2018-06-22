@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "main": "category.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server .js"
   },
   "author": "",
   "license": "ISC",
+  "devDependencies": {},
+  "description": "",
   "dependencies": {
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
@@ -14,6 +16,8 @@
     "fn": "^0.2.0",
     "mysql2": "^1.5.3"
   },
-  "devDependencies": {},
-  "description": ""
+  "engines": {
+    "node": "9",
+    "npm": "5"
+  }
 }
