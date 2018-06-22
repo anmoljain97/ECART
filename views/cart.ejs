@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="/scripts/cart.js"></script>
+
 </head>
 
 <body style="background-image: url(https://ak6.picdn.net/shutterstock/videos/11775806/thumb/1.jpg); background-size: auto">
@@ -36,6 +39,8 @@
                         <td>
                             <%= cart[i].price*cart[i].quantity %>
                         </td>
+                        <td><button class="plus">+</button></td>
+                                <td><button class="minus">-</button></td>
 
                     </tr>
                     <% } %>
