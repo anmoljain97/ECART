@@ -135,3 +135,6 @@ app.listen(4444,function(){
 console.log("SERVER STARTED AT 4444");
 
 });
+app.get('/thankyou',function(req,res){
+    res.redirect('confirm.ejs')
+})
